@@ -19,6 +19,11 @@ pipeline {
                 sh 'docker run -d --name httpd -p 82:80 testingpipeline:v1'
             }
         }
+        stage('Dangling Image remove') {
+            steps {
+                sh 'docker rmi -f $(docker images -f dangling=true)'
+            }
+        }
         
     }
 }
