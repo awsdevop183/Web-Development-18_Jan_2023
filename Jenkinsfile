@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Delete old image') {
             steps {
-                sh 'docker rmi '
+                sh 'docker rmi testingpipeline:v1'
             }
         }
         stage('Create Docker image') {
